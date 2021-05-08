@@ -8,7 +8,7 @@ namespace Bhaskara
         {
             string username;
             int numericName;
-            bool validUsername;
+            bool validUsername, validNumber;
 
             double a = 1.0, b = 1.0, c = -4.0;
             double delta = (b * b) - 4.0 * a * c;
@@ -27,10 +27,12 @@ namespace Bhaskara
                 {
                     Console.Clear();
                     Console.ForegroundColor=ConsoleColor.Red;
-                    Console.WriteLine("\nO VALOR DIGITADO NÃO CORRESPONDE A UM VALOR LITERAL!");
+                    Console.WriteLine(
+                        "\nO VALOR DIGITADO NÃO CORRESPONDE A UM VALOR LITERAL!");
                     Console.ResetColor();
                     Environment.Exit(-1);
                 }
+            Console.Clear();
             Console.Write("\nDigite o valor de (A)..:");
             double.TryParse(Console.ReadLine(), out a);
 
@@ -38,7 +40,8 @@ namespace Bhaskara
                 {
                     Console.Clear();
                     Console.ForegroundColor=ConsoleColor.Red;
-                    Console.WriteLine("\n\não é uma equação de segundo grau"!);
+                    Console.WriteLine(
+                        $"\n\nO VALOR FORNECIDO NÃO É UMA EQUAÇÃO DE SEGUNDO GRAU!");
                     Console.ResetColor();
                     Environment.Exit(-1);
                 }
@@ -46,11 +49,12 @@ namespace Bhaskara
             Console.Write("Digite o valor de (B)..:");
             double.TryParse(Console.ReadLine(), out b);
 
-                if(delta < 0)
+                if(b < 0)
                 {
                     Console.Clear();
                     Console.ForegroundColor=ConsoleColor.Red;
-                    Console.WriteLine($"Como delta = {delta}, a equação não possui raízes reais!");
+                    Console.WriteLine(
+                        $"\n\nCOMO DELTA = {delta}, A EQUAÇÃO NÃO POSSUÍ RAÍZES REAIS!");
                     Console.ResetColor();
                     Environment.Exit(-1);
                 }
@@ -58,14 +62,12 @@ namespace Bhaskara
             Console.Write("Digite o valor de (C)..:");
             double.TryParse(Console.ReadLine(), out c);
 
-            Console.ForegroundColor=ConsoleColor.
-            Console.WriteLine("-- Equação do segundo grau --");
-            Console.ResetColor();
+            Console.WriteLine("\n\n-- Equação do segundo grau --");
             Console.WriteLine($"\n\nResultado (x1)..:{x1:N2}");
             Console.WriteLine($"\nResultado (x2)..:{x2:N2}");
 
             Console.ForegroundColor=ConsoleColor.Green;
-            Console.WriteLine($"\nOBRIGADA {username} POR UTILIZAR O PROGRAMA!");
+            Console.WriteLine($"\nOBRIGADA {username.ToUpper()} POR UTILIZAR O PROGRAMA!");
             Console.ResetColor();
             Environment.Exit(-1);
         }
